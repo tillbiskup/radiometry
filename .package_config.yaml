@@ -1,0 +1,25 @@
+package:
+  name: radiometry
+  author: Till Biskup
+  author_email: till.biskup@ptb.de
+  year: '2024'
+  description: 'Reproducible and automated processing and analysis of (synchrotron) radiometry data based on the ASpecD framework'
+  urls:
+    main: 'https://www.ahf.ptb.de/'
+    documentation: 'https://radiometry.docs.till-biskup.de/'
+    source: 'https://github.com/tillbiskup/radiometry'
+  keywords: ['eve', 'radiometry', 'synchrotron', 'metrology', 'PTB', 'BESSY']
+  install_requires: ['aspecd', 'h5py']
+  license: GPLv3
+documentation:
+  logo: ''
+  favicon: ''
+  language: en
+options:
+  logging: false
+  git: true
+  gui: false
+gui:
+  splash: true
+  organisation: 'radiometry'
+  domain: 'ptb.de'
