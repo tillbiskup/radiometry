@@ -62,14 +62,26 @@ class EveDataset(aspecd.dataset.Dataset):
     actually performed. Therefore, dedicated other dataset classes need to be
     developed that are purpose-built for more specific kinds of measurements.
 
+    .. note::
+
+        This class should become the central interface between eve HDF5 files
+        and processing and analysis routines, together with the corresponding
+        importer. Hence, these two classes need to reflect any further update
+        of the eve HDF5 format. In accord with the open-closed principle, the
+        :class:`EveDataset` should only be extended, but not change existing
+        structures to not impair backward compatibility.
+
     While representing all possible data and metadata, this class is *not* a
     mere reimplementation of the eve HDF5 file structure, but an abstraction
     taking into account the concepts of the ASpecD framework.
 
+    For a convenient overview of the structure of this dataset, see the
+    :doc:`dataset structure </dataset-structure>`.
+
     Attributes
     ----------
-    attr : :class:`None`
-        Short description
+    metadata : :class:`radiometry.metadata.EveDatasetMetadata`
+        Hierarchical structure containing all relevant metadata
 
     """
 

@@ -51,6 +51,7 @@ _origdata:
 device_data: {}
 metadata:
   measurement:
+    location: ''
     start: null
     end: null
     purpose: ''

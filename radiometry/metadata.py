@@ -39,7 +39,68 @@ class EveDatasetMetadata(aspecd.metadata.ExperimentalDatasetMetadata):
 
     Attributes
     ----------
-    attr : :class:`None`
-        Short description
+    measurement : :class:`Measurement`
+        Metadata of measurement
 
     """
+
+    def __init__(self):
+        super().__init__()
+        self.measurement = Measurement()
+
+
+class Measurement(aspecd.metadata.Measurement):
+    """
+    General information available for each type of measurement.
+
+    Attributes
+    ----------
+    location : :class:`str`
+        Experimental station the data were obtained
+
+    """
+
+    def __init__(self, dict_=None):
+        self.location = ""
+        super().__init__(dict_=dict_)
+
+
+class Device(aspecd.metadata.Device):
+    """
+    One sentence (on one line) describing the class.
+
+    More description comes here...
+
+
+    Attributes
+    ----------
+    name : :class:`str`
+        Name of the device
+
+        TODO: What is this name? And how does it differ from :attr:`label`?
+
+    type : :class:`str`
+        Device type
+
+        Channel or Axis
+
+        TODO: Needs to become an enum type
+
+    xmlid : :class:`str`
+        XML id
+
+        Some more description is necessary.
+
+    access : :class:`str`
+        PV name for CA
+
+        Some more description is necessary.
+
+    """
+
+    def __init__(self, dict_=None):
+        self.name = ""
+        self.type = ""
+        self.xmlid = ""
+        self.access = ""
+        super().__init__(dict_=dict_)
