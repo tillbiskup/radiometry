@@ -19,6 +19,55 @@ class TestEveDatasetMetadata(unittest.TestCase):
             )
         )
 
+    def test_has_experiment_metadata(self):
+        self.assertTrue(
+            isinstance(
+                self.metadata.experiment,
+                metadata.Experiment,
+            )
+        )
+
+    def test_has_setup_metadata(self):
+        self.assertTrue(
+            isinstance(
+                self.metadata.setup,
+                metadata.Setup,
+            )
+        )
+
+
+class TestExperiment(unittest.TestCase):
+    def setUp(self):
+        self.experiment = metadata.Experiment()
+
+    def test_instantiate_class(self):
+        pass
+
+    def test_has_attributes(self):
+        attributes = [
+            "comment",
+            "procedure",
+        ]
+        for attribute in attributes:
+            with self.subTest(attribute=attribute):
+                self.assertTrue(hasattr(self.experiment, attribute))
+
+    def test_instantiate_properties_from_dict(self):
+        dict_ = {
+            "comment": "Lorem ipsum",
+        }
+        experiment = metadata.Experiment(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(experiment, key), dict_[key])
+
+    def test_set_properties_from_dict(self):
+        dict_ = {
+            "comment": "Lorem ipsum",
+        }
+        self.experiment.from_dict(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(self.experiment, key), dict_[key])
+
 
 class TestMeasurement(unittest.TestCase):
     def setUp(self):
@@ -32,8 +81,6 @@ class TestMeasurement(unittest.TestCase):
             "start",
             "end",
             "duration",
-            "location",
-            "procedure",
         ]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
@@ -125,3 +172,35 @@ class TestScanDescription(unittest.TestCase):
         self.scan_description.from_dict(dict_)
         for key in dict_:
             self.assertEqual(getattr(self.scan_description, key), dict_[key])
+
+
+class TestSetup(unittest.TestCase):
+    def setUp(self):
+        self.setup = metadata.Setup()
+
+    def test_instantiate_class(self):
+        pass
+
+    def test_has_attributes(self):
+        attributes = [
+            "name",
+        ]
+        for attribute in attributes:
+            with self.subTest(attribute=attribute):
+                self.assertTrue(hasattr(self.setup, attribute))
+
+    def test_instantiate_properties_from_dict(self):
+        dict_ = {
+            "name": "foo",
+        }
+        setup = metadata.Setup(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(setup, key), dict_[key])
+
+    def test_set_properties_from_dict(self):
+        dict_ = {
+            "name": "foo",
+        }
+        self.setup.from_dict(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(self.setup, key), dict_[key])

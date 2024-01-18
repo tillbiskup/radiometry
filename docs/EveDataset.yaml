@@ -51,10 +51,6 @@ _origdata:
 device_data: {}
 metadata:
   measurement:
-    location: ''
-    procedure:
-      filename: ''
-      description: ''
     start: null
     end: null
     purpose: ''
@@ -71,6 +67,13 @@ metadata:
       name: ''
       value: 0.0
     controller: ''
+  experiment:
+    comment: ''
+    procedure:
+      filename: ''
+      description: ''
+  setup:
+    name: ''
 history: []
 _history_pointer: -1
 analyses: []

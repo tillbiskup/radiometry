@@ -40,14 +40,52 @@ class EveDatasetMetadata(aspecd.metadata.ExperimentalDatasetMetadata):
 
     Attributes
     ----------
+    experiment : :class:`Experiment`
+        Metadata of the experiment carried out
+
     measurement : :class:`Measurement`
-        Metadata of measurement
+        Metadata of the measurement as a result of carrying out the experiment
+
+    setup : :class:`Setup`
+        Metadata of the setup the experiment was carried out on
 
     """
 
     def __init__(self):
         super().__init__()
+        self.experiment = Experiment()
         self.measurement = Measurement()
+        self.setup = Setup()
+
+
+class Experiment(aspecd.metadata.Metadata):
+    """
+    General information available for an experiment.
+
+    In contrast to :class:`Measurement`, an experiment is a more general
+    description of an experiment, while a measurement is the act/result of
+    performing such an experiment.
+
+
+    Attributes
+    ----------
+    comment : :class:`str`
+        Comment on the level of the entire experiment
+
+        In contrast to comments during a measurement that are added to the
+        list of :attr:`aspecd.dataset.Dataset.annotations` (and dubbed "life
+        comment" or "log message" in eve), a comment on this level refers to
+        the experiment as such.
+
+    procedure : :class:`ScanDescription`
+        Actionable description of the procedure underlying the experiment
+
+    """
+
+    def __init__(self, dict_=None):
+        self.comment = ""
+        self.procedure = ScanDescription()
+        super().__init__(dict_=dict_)
 
 
 class Measurement(aspecd.metadata.Measurement):
@@ -68,20 +106,7 @@ class Measurement(aspecd.metadata.Measurement):
     end : `datetime.datetime`
         Date and time of end of measurement
 
-    location : :class:`str`
-        Experimental station the data were obtained at
-
-    procedure : :class:`ScanDescription`
-        Actionable description of the procedure underlying the measurement
-
-
-
     """
-
-    def __init__(self, dict_=None):
-        self.location = ""
-        self.procedure = ScanDescription()
-        super().__init__(dict_=dict_)
 
     @property
     def duration(self):
@@ -177,4 +202,25 @@ class ScanDescription(aspecd.metadata.Metadata):
     def __init__(self, dict_=None):
         self.filename = ""
         self.description = ""
+        super().__init__(dict_=dict_)
+
+
+class Setup(aspecd.metadata.Metadata):
+    """
+    General information of the setup an experiment was carried out on.
+
+    The setup is basically the sum of the hardware used to carry out an
+    experiment resulting in a measurement/measured data.
+
+    Attributes
+    ----------
+    name : :class:`str`
+        Descriptive and concise name of the setup
+
+        Example: Name of the beamline.
+
+    """
+
+    def __init__(self, dict_=None):
+        self.name = ""
         super().__init__(dict_=dict_)
