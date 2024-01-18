@@ -28,7 +28,13 @@ class TestMeasurement(unittest.TestCase):
         pass
 
     def test_has_additional_attributes(self):
-        attributes = ["start", "end", "duration", "location"]
+        attributes = [
+            "start",
+            "end",
+            "duration",
+            "location",
+            "procedure",
+        ]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
                 self.assertTrue(hasattr(self.measurement, attribute))
@@ -70,6 +76,12 @@ class TestDevice(unittest.TestCase):
     def test_instantiate_class(self):
         pass
 
+    def test_instantiate_properties_from_dict(self):
+        dict_ = {"label": "foo"}
+        device = metadata.Device(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(device, key), dict_[key])
+
     def test_set_properties_from_dict(self):
         dict_ = {"label": "foo"}
         self.device.from_dict(dict_)
@@ -81,3 +93,35 @@ class TestDevice(unittest.TestCase):
         for attribute in attributes:
             with self.subTest(attribute=attribute):
                 self.assertTrue(hasattr(self.device, attribute))
+
+
+class TestScanDescription(unittest.TestCase):
+    def setUp(self):
+        self.scan_description = metadata.ScanDescription()
+
+    def test_instantiate_class(self):
+        pass
+
+    def test_has_attributes(self):
+        attributes = ["filename", "description"]
+        for attribute in attributes:
+            with self.subTest(attribute=attribute):
+                self.assertTrue(hasattr(self.scan_description, attribute))
+
+    def test_instantiate_properties_from_dict(self):
+        dict_ = {
+            "filename": "foo",
+            "description": "Lorem ipsum",
+        }
+        scan_description = metadata.ScanDescription(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(scan_description, key), dict_[key])
+
+    def test_set_properties_from_dict(self):
+        dict_ = {
+            "filename": "foo",
+            "description": "Lorem ipsum",
+        }
+        self.scan_description.from_dict(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(self.scan_description, key), dict_[key])

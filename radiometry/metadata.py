@@ -69,12 +69,18 @@ class Measurement(aspecd.metadata.Measurement):
         Date and time of end of measurement
 
     location : :class:`str`
-        Experimental station the data were obtained
+        Experimental station the data were obtained at
+
+    procedure : :class:`ScanDescription`
+        Actionable description of the procedure underlying the measurement
+
+
 
     """
 
     def __init__(self, dict_=None):
         self.location = ""
+        self.procedure = ScanDescription()
         super().__init__(dict_=dict_)
 
     @property
@@ -100,9 +106,11 @@ class Measurement(aspecd.metadata.Measurement):
 
 class Device(aspecd.metadata.Device):
     """
-    One sentence (on one line) describing the class.
+    Information on the device contributing device data.
 
-    More description comes here...
+    This class contains the metadata of the corresponding devices whose
+    data are of type :class:`radiometry.dataset.DeviceData`. That class
+    contains an attribute :attr:`radiometry.dataset.DeviceData.metadata`.
 
 
     Attributes
@@ -136,4 +144,37 @@ class Device(aspecd.metadata.Device):
         self.type = ""
         self.xmlid = ""
         self.access = ""
+        super().__init__(dict_=dict_)
+
+
+class ScanDescription(aspecd.metadata.Metadata):
+    """
+    Actionable description of a scan used in a measurement.
+
+    A scan in eve is described using an XML file with a specific schema termed
+    "SCML".
+
+    .. note::
+
+        Depending on the actual requirements, this class may eventually do much
+        more than being a container for SCML files. Possible behaviour includes
+        (partially) parsing the contained SCML/XML and extracting information,
+        such as a list of devices.
+
+
+    Attributes
+    ----------
+    filename : :class:`str`
+        Name of the SCML file describing the scan.
+
+    description : :class:`str`
+        Actual description of the scan.
+
+        This is the (multiline) string containing the actual XML/SCML.
+
+    """
+
+    def __init__(self, dict_=None):
+        self.filename = ""
+        self.description = ""
         super().__init__(dict_=dict_)

@@ -52,6 +52,9 @@ device_data: {}
 metadata:
   measurement:
     location: ''
+    procedure:
+      filename: ''
+      description: ''
     start: null
     end: null
     purpose: ''
