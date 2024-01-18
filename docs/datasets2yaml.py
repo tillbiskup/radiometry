@@ -1,7 +1,7 @@
 import aspecd.utils
 
 
-class_names = ["EveDataset"]
+class_names = ["EveDataset", "DeviceData"]
 
 for class_name in class_names:
     yaml = aspecd.utils.Yaml()

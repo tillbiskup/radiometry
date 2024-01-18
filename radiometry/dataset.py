@@ -88,3 +88,22 @@ class EveDataset(aspecd.dataset.Dataset):
     def __init__(self):
         super().__init__()
         self.metadata = metadata.EveDatasetMetadata()
+
+
+class DeviceData(aspecd.dataset.DeviceData):
+    """
+    One sentence (on one line) describing the class.
+
+    More description comes here...
+
+
+    Attributes
+    ----------
+    metadata : :class:`radiometry.metadata.Device`
+        Metadata of the device used to record the additional data
+
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.metadata = metadata.Device()

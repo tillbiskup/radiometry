@@ -16,3 +16,12 @@ Entity containing both, numerical data as well as the corresponding metadata tha
 
 .. literalinclude:: EveDataset.yaml
    :language: yaml
+
+
+DeviceData
+----------
+
+Device data are a subclass of :class:`aspecd.dataset.Data` containing additional metadata. Device data are stored as a dictionary in the dataset structure, where the keys refer to the "name" of the respective device, and the values are instances of the :class:`radiometry.dataset.DeviceData` class. Therefore, the structure of the :class:`radiometry.dataset.DeviceData` class is not visible in the dataset structure shown above, but documented below:
+
+.. literalinclude:: DeviceData.yaml
+   :language: yaml

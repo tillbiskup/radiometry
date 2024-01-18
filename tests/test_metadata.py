@@ -28,16 +28,10 @@ class TestMeasurement(unittest.TestCase):
         pass
 
     def test_has_additional_attributes(self):
-        attributes = ["duration", "location"]
+        attributes = ["start", "end", "duration", "location"]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
                 self.assertTrue(hasattr(self.measurement, attribute))
-
-    def test_start_is_datetime_object(self):
-        self.assertIsInstance(self.measurement.start, datetime.datetime)
-
-    def test_end_is_datetime_object(self):
-        self.assertIsInstance(self.measurement.end, datetime.datetime)
 
     def test_instantiate_properties_from_dict(self):
         dict_ = {
@@ -58,6 +52,15 @@ class TestMeasurement(unittest.TestCase):
         self.measurement.from_dict(dict_)
         for key in dict_:
             self.assertEqual(getattr(self.measurement, key), dict_[key])
+
+    def test_duration_returns_correct_time_delta(self):
+        now = datetime.datetime.now()
+        self.measurement.start = now.replace(minute=now.minute - 1)
+        self.measurement.end = now
+        self.assertEqual(
+            self.measurement.end - self.measurement.start,
+            self.measurement.duration,
+        )
 
 
 class TestDevice(unittest.TestCase):
