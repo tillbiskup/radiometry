@@ -219,8 +219,12 @@ class Setup(aspecd.metadata.Metadata):
 
         Example: Name of the beamline.
 
+        Hint: This information is typically contained in the ``Location``
+        attribute of the eveH5 file.
+
     """
 
     def __init__(self, dict_=None):
         self.name = ""
+        self.software = None
         super().__init__(dict_=dict_)

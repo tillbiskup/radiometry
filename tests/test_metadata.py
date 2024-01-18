@@ -184,6 +184,7 @@ class TestSetup(unittest.TestCase):
     def test_has_attributes(self):
         attributes = [
             "name",
+            "software",
         ]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
