@@ -136,7 +136,12 @@ class TestDevice(unittest.TestCase):
             self.assertEqual(getattr(self.device, key), dict_[key])
 
     def test_has_additional_attributes(self):
-        attributes = ["name", "type", "xmlid", "access"]
+        attributes = [
+            "name",
+            "type",
+            "xmlid",
+            "access",
+        ]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
                 self.assertTrue(hasattr(self.device, attribute))
@@ -150,7 +155,10 @@ class TestScanDescription(unittest.TestCase):
         pass
 
     def test_has_attributes(self):
-        attributes = ["filename", "description"]
+        attributes = [
+            "filename",
+            "description",
+        ]
         for attribute in attributes:
             with self.subTest(attribute=attribute):
                 self.assertTrue(hasattr(self.scan_description, attribute))
@@ -205,3 +213,32 @@ class TestSetup(unittest.TestCase):
         self.setup.from_dict(dict_)
         for key in dict_:
             self.assertEqual(getattr(self.setup, key), dict_[key])
+
+
+class TestEveSoftware(unittest.TestCase):
+    def setUp(self):
+        self.eve_software = metadata.EveSoftware()
+
+    def test_instantiate_class(self):
+        pass
+
+    def test_has_attributes(self):
+        attributes = [
+            "engine_version",
+            "xml_schema_version",
+        ]
+        for attribute in attributes:
+            with self.subTest(attribute=attribute):
+                self.assertTrue(hasattr(self.eve_software, attribute))
+
+    def test_instantiate_properties_from_dict(self):
+        dict_ = {"engine_version": "1.39.1", "xml_schema_version": "9.2"}
+        eve_software = metadata.EveSoftware(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(eve_software, key), dict_[key])
+
+    def test_set_properties_from_dict(self):
+        dict_ = {"engine_version": "1.39.1", "xml_schema_version": "9.2"}
+        self.eve_software.from_dict(dict_)
+        for key in dict_:
+            self.assertEqual(getattr(self.eve_software, key), dict_[key])

@@ -74,6 +74,9 @@ metadata:
       description: ''
   setup:
     name: ''
+    software:
+      engine_version: ''
+      xml_schema_version: ''
 history: []
 _history_pointer: -1
 analyses: []

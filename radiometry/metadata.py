@@ -226,5 +226,32 @@ class Setup(aspecd.metadata.Metadata):
 
     def __init__(self, dict_=None):
         self.name = ""
-        self.software = None
+        self.software = EveSoftware()
+        super().__init__(dict_=dict_)
+
+
+class EveSoftware(aspecd.metadata.Metadata):
+    """
+    General information regarding the eve software used at the setup.
+
+    More description comes here...
+
+    TODO: Decide whether to add the version number of the eveH5 file format
+    as well.
+
+
+    Attributes
+    ----------
+    engine_version : :class:`str`
+        Version number of the evEngine used at the setup
+
+    xml_schema_version : :class:`str`
+        Version number of the XML schema the setup description and SCML files
+        are validated against
+
+    """
+
+    def __init__(self, dict_=None):
+        self.engine_version = ""
+        self.xml_schema_version = ""
         super().__init__(dict_=dict_)
