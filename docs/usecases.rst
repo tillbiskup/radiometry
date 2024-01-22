@@ -11,7 +11,7 @@ Use cases
         :depth: 1
 
 
-For the time being, the following description of use cases is rather an idea how working with the eveviewer GUI may look like than a description of what actually can be achieved.
+For the time being, the following description of use cases is rather an idea how working with the radiometry package may look like than a description of what actually can be achieved.
 
 
 General usage
