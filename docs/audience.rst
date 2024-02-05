@@ -8,7 +8,7 @@ Who is the target audience of the radiometry package? Is it interesting for me?
 Synchrotron radiometry people at PTB Berlin
 ===========================================
 
-The radiometry package currently primarily addresses **radiometry** people working at the synchrotron beamlines at BESSY-II and MLS in Berlin operated by the German National Metrology Institute, the `Physikalisch-Technische Bundesanstalt (PTB) <https://www.ptb.de/>`_. If you are looking for a **data viewer tool**, aimed at conveniently inspecting data directly at the beamline, you may have a look at the ``eveviewer`` package.
+The radiometry package currently primarily addresses **radiometry** people working at the synchrotron beamlines at BESSY-II and MLS in Berlin operated by the German National Metrology Institute, the `Physikalisch-Technische Bundesanstalt (PTB) <https://www.ptb.de/>`_. If you are looking for a **data viewer tool**, aimed at conveniently inspecting data directly at the beamline, you may have a look at the ``evedataviewer`` package.
 
 
 Motivation and general ideas
