@@ -65,6 +65,12 @@ License
 This program is free software: you can redistribute it and/or modify it under the terms of the **GPLv3 License**.
 
 
+A note on the logo
+==================
+
+The logo depicts a synchrotron emitting radiation, with the Python logo in its centre. While the synchrotron part is inspired by the logo used for the `Metrology with Synchrotron Radiation section of the PTB <https://www.ptb.de/cms/en/ptb/fachabteilungen/abt7/ptb-sr.html>`_ and the rights of the Python logo belong to the Python Software Foundation (PSF), the entire logo is copyright T. Biskup.
+
+
 
 .. toctree::
    :maxdepth: 2
