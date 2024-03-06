@@ -12,10 +12,10 @@ Due to inheriting from the `ASpecD framework <https://www.aspecd.de/>`_, all dat
 Features
 ========
 
-A list of features:
+A list of (planned) features:
 
 * Generalised data model for (synchrotron) radiometry data
-* Importer for eve HDF5 files (used at PTB in Berlin, Germany)
+
 * A growing list of general-purpose processing and analysis steps
 
 
