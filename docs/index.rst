@@ -52,11 +52,11 @@ There is a number of related packages users of the radiometry package may well b
 
   A Python framework for the analysis of spectroscopic data focussing on reproducibility and good scientific practice. The framework the radiometry package is based on, developed by T. Biskup.
 
-* evedataviewer
+* `evedataviewer <https://evedataviewer.docs.radiometry.de/>`_
 
   A Python package for **graphically inspecting data** contained in EVE files, *i.e.* data **obtained at one of the beamlines at BESSY-II or MLS in Berlin**, mostly operated by the German National Metrology Institute, the `Physikalisch-Technische Bundesanstalt (PTB) <https://www.ptb.de/>`_.
 
-* evedata
+* `evedata <https://evedata.docs.radiometry.de/>`_
 
   A Python package for **importing (synchrotron) radiometry data** obtained at one of the beamlines at **BESSY-II or MLS in Berlin**, mostly operated by the German National Metrology Institute, the `Physikalisch-Technische Bundesanstalt (PTB) <https://www.ptb.de/>`_.
 
